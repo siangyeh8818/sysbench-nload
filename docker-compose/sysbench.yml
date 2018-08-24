@@ -1,7 +1,7 @@
 version: '3.1'
 services:
     sysbench:
-       image: sysbench:v1
+       image: siangyeh8818/sysbench-nload:v1
        network_mode: host
        restart: always
        privileged: true
