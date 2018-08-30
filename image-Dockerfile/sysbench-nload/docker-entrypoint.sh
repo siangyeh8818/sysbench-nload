@@ -10,7 +10,10 @@ sysbench  --test=threads --num-threads=500 --thread-yields=100 --thread-locks=4 
 echo "----------------------------------------------"
 echo "3. 測試 Memory 效能"
 echo "----------------------------------------------"
+echo "stage-1: 測試memory讀取-----------------------"
 sysbench --test=memory --memory-block-size=8K --memory-total-size=1G --memory-oper=read run
+echo "stage-2: 測試memory寫入-----------------------"
+sysbench --test=memory --memory-block-size=8K --memory-total-size=1G run
 echo "----------------------------------------------"
 echo "4. 測試 I/O 效能"
 echo "----------------------------------------------"
@@ -23,7 +26,7 @@ sysbench --test=fileio --num-threads=20 --file-total-size=2G --file-test-mode=rn
 echo "----------------------------------------------"
 echo "5. 測試 mutex 效能"
 echo "----------------------------------------------"
-sysbench –test=mutex –num-threads=100 –mutex-num=1000 –mutex-locks=100000 –mutex-loops=10000 run
+sysbench --test=mutex --num-threads=100 --mutex-num=1000 --mutex-locks=100000 --mutex-loops=10000 run
 echo "----------------------------------------------"
 echo "完成所有已知測試"
 

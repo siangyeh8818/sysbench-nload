@@ -1,7 +1,17 @@
 version: '3.1'
 services:
     sysbench:
-       image: siangyeh8818/sysbench-nload:v1
-       network_mode: host
+       image: siangyeh8818/sysbench-nload:v2
+       ports:
+         - 5201:5201
+#       network_mode: host
        restart: always
        privileged: true
+       volumes:
+          - /etc/localtime:/etc/localtime
+    iperf-client:
+       image: siangyeh8818/iperf-client:v2
+#       network_mode: host
+       restart: always
+       volumes:
+          - /etc/localtime:/etc/localtime
